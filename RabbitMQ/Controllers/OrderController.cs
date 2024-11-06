@@ -17,7 +17,7 @@ namespace Producer.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateOrder(OrderMessage order)
+        public IActionResult CreateOrder(OrderMessage order)   
         {
             order.OrderDate = DateTime.UtcNow;
             _rabbitMQService.PublishMessage(order, RabbitMQConstants.OrderRoutingKey);
