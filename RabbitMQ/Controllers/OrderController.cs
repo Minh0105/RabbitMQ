@@ -22,7 +22,7 @@ namespace Producer.Controllers
             order.OrderDate = DateTime.UtcNow;
             _rabbitMQService.PublishMessage(order, RabbitMQConstants.OrderRoutingKey);
 
-            return Accepted(new { OrderId = order.OrderId });
+            return Accepted(new { OrderId = order.OrderId });   
         }
     }
 }
